@@ -13,6 +13,10 @@ require 'Camera'
 WINDOW_WIDTH = 1280
 WINDOW_HEIGHT = 720
 
+if os.getenv("LOCAL_LUA_DEBUGGER_VSCODE") == "1" then
+    require("lldebugger").start()
+end
+
 function love.load()
     -- Initialise Window
     love.window.setMode(WINDOW_WIDTH, WINDOW_HEIGHT, {
@@ -57,6 +61,7 @@ function love.keypressed(key)
 
     if key == 'escape' then
         love.event.quit()
+        
     end
 end
 
